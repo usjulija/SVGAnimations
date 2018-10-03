@@ -1,0 +1,62 @@
+@import "mixins.scss";
+
+html {
+  background: #222;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  margin: 30px auto;
+  border: 1px solid #333;
+  @include linear-gradient;
+}
+
+/*--extend--*/
+.area {
+  width: 600px;
+  height: 400px;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
+.fore, .mid, .bck, .container {
+  @extend .area;
+}
+
+.bck {
+  background: url("../images/back.png");
+  animation: bk 25s -5s linear infinite;
+  transform: translateZ(0);
+}
+
+.mid {
+  background: url("../images/back2.png");
+  animation: bk 18s -5s linear infinite;
+  transform: translateZ(0);
+}
+
+.fore {
+  background: url("../images/back3.png");
+  animation: bk 10s -5s linear infinite;
+  transform: translateZ(0);
+}
+
+.ghost {
+  background: url("../images/ghost.png") no-repeat;
+  width: 180px;
+  height: 205px;
+  transform: translate3D(100px, 187px, 0);
+  animation: walk 0.8s steps(8) infinite;
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
+@keyframes walk {
+  100% { background-position: 0 -1640px; }
+}
+
+@keyframes bk {
+  100% { background-position: 200% 0; }
+}

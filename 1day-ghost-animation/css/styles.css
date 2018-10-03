@@ -1,0 +1,53 @@
+html {
+  background: #222;
+  width: 100vw;
+  height: 100vh; }
+
+.container {
+  margin: 30px auto;
+  border: 1px solid #333;
+  background: #5c0036;
+  background: -moz-linear-gradient(top, #5c0036 0%, #5c5c5c 100%);
+  background: -webkit-linear-gradient(top, #5c0036 0%, #5c5c5c 100%);
+  background: linear-gradient(to bottom, #5c0036 0%, #5c5c5c 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#5c0036, endColorstr=#5c5c5c,GradientType=0 ); }
+
+/*--extend--*/
+.area, .fore, .mid, .bck, .container {
+  width: 600px;
+  height: 400px;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000; }
+
+.bck {
+  background: url("../images/back.png");
+  animation: bk 25s -5s linear infinite;
+  transform: translateZ(0); }
+
+.mid {
+  background: url("../images/back2.png");
+  animation: bk 18s -5s linear infinite;
+  transform: translateZ(0); }
+
+.fore {
+  background: url("../images/back3.png");
+  animation: bk 10s -5s linear infinite;
+  transform: translateZ(0); }
+
+.ghost {
+  background: url("../images/ghost.png") no-repeat;
+  width: 180px;
+  height: 205px;
+  transform: translate3D(100px, 187px, 0);
+  animation: walk 0.8s steps(8) infinite;
+  backface-visibility: hidden;
+  perspective: 1000; }
+
+@keyframes walk {
+  100% {
+    background-position: 0 -1640px; } }
+
+@keyframes bk {
+  100% {
+    background-position: 200% 0; } }
