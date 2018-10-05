@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+body {
+  background: #cfe7fa;
+  background: -moz-linear-gradient(-45deg, #cfe7fa 0%, #6393c1 100%);
+  background: -webkit-linear-gradient(-45deg, #cfe7fa 0%, #6393c1 100%);
+  background: linear-gradient(135deg, #cfe7fa 0%, #6393c1 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#cfe7fa, endColorstr=#6393c1,GradientType=1 );
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-left: 15%; }
+
+input {
+  font-size: 35px;
+  padding-left: 40px;
+  background: none;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: white;
+  transition: 0.5s all cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+
+.magnifier, input, .close {
+  pointer: cursor;
+  position: absolute; }
+
+.magnifier, input {
+  width: 85px; }
+
+.magnifier circle, .magnifier line, .close line {
+  fill: none;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-width: 3px;
+  transition: 0.25s all cubic-bezier(0.55, 0.085, 0.68, 0.53); }
+
+.close {
+  width: 17px;
+  margin: 9px;
+  transition: 0.5s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer; }
+  .close line {
+    stroke-width: 4px;
+    opacity: 0;
+    transform: scale(0);
+    transform-origin: 50% 50%; }
+
+.magnifier line {
+  transition: 0.25s all cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  transform: scale(1); }
+
+.magnifier circle {
+  transition: 0.25s all cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  transform: scale(1); }
+
+.open .magnifier line {
+  transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: scale(0); }
+
+.open .magnifier circle {
+  transition: 0.35s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: scale(0.8); }
+
+.open input {
+  width: 50vw;
+  border-bottom: 3px solid white; }
+
+.open .close line {
+  opacity: 1;
+  transform: scale(1);
+  transition: 0.75s all cubic-bezier(0.25, 0.46, 0.45, 0.94); }

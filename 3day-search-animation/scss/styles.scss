@@ -1,0 +1,99 @@
+@mixin linear-gradient($color1: #cfe7fa, $color2: #6393c1) {
+  background: $color1;
+  background: -moz-linear-gradient(-45deg, $color1 0%, $color2 100%);
+  background: -webkit-linear-gradient(-45deg, $color1 0%,$color2 100%);
+  background: linear-gradient(135deg, $color1 0%,$color2 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#{$color1}, endColorstr=#{$color2},GradientType=1 );
+}
+
+$quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$quad-out: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  @include linear-gradient;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-left: 15%;
+}
+
+input {
+  font-size: 35px;
+  padding-left: 40px;
+  background: none;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: white;
+  transition: 0.5s all $quad;
+}
+
+.magnifier, input, .close {
+  pointer: cursor;
+  position: absolute;
+}
+
+.magnifier, input {
+  width: 85px;
+}
+
+.magnifier circle, .magnifier line, .close line {
+  fill: none;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-width: 3px;
+  transition: 0.25s all $quad-out;
+}
+
+.close {
+  width: 17px;
+  margin: 9px;
+  transition: 0.5s all $quad;
+  cursor: pointer;
+  line {
+    stroke-width: 4px;
+    opacity: 0;
+    transform: scale(0);
+    transform-origin: 50% 50%;
+  }
+}
+
+.magnifier {
+  line {
+    transition: 0.25s all $quad-out;
+    transform: scale(1);
+  }
+  circle {
+    transition: 0.25s all $quad-out;
+    transform: scale(1);
+  }
+}
+
+.open .magnifier {
+  line {
+    transition: 0.25s all $quad;
+    transform: scale(0);
+  }
+  circle {
+    transition: 0.35s all $quad;
+    transform: scale(0.8);
+  }
+}
+
+.open input {
+  width: 50vw;
+  border-bottom: 3px solid white;
+}
+
+.open .close line {
+  opacity: 1;
+  transform: scale(1);
+  transition: 0.75s all $quad;
+}
