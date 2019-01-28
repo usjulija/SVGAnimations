@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#viewport {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  background: #000000;
+  background: -moz-linear-gradient(top, #000000 0%, #261423 100%);
+  background: -webkit-linear-gradient(top, #000000 0%,#261423 100%);
+  background: linear-gradient(to bottom, #000000 0%,#261423 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#261423',GradientType=0 );
+}
+
+#world {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -256px;
+  margin-top: -256px;
+  height: 512px;
+  width: 512px;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+}
+
+#world div {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+}
+
+.cloudBase {
+  height: 20px;
+  left: 256px;
+  margin-left: -10px;
+  margin-top: -10px;
+  position: absolute;
+  top: 256px;
+  width: 20px;
+}
+
+.cloudLayer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 256px;
+  height: 256px;
+  margin-left: -128px;
+  margin-top: -128px;
+  -webkit-transition: opacity .5s ease-out;
+  -moz-transition: opacity .5s ease-out;
+  -o-transition: opacity .5s ease-out;
+}
